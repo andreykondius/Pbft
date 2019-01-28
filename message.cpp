@@ -16,7 +16,6 @@ void message::loadNodes()
 
     std::mt19937 gen(static_cast<unsigned int>(time(nullptr)));
 
-    int iii = 100;
     for(auto i=0; i < count; ++i)
     {
         properties prop;    // установка свойств узлов (так же задаётся извне)
@@ -25,8 +24,6 @@ void message::loadNodes()
         std::uniform_int_distribution<> uid(0, count-1);
         // этот параметр задаётся для тестов случайным образом, в реальном проекте он должен считываться через класс link
         prop.count = arr[ uid(gen) ];
-        prop.count = iii;
-        iii += 100;
         std::uniform_int_distribution<> uid2(0, 1);
         // этот параметр задаётся для тестов случайным образом, в реальном проекте он должен считываться через класс link
         prop.fType = uid2(gen) == 0? true : false;
